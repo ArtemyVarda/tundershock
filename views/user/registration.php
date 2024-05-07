@@ -8,7 +8,7 @@ use yii\widgets\ActiveForm;
 ?>
 
 <body>
-    <h1><?= $this->title ?></h1>
+    <h1 class="titles">⫎<?= $this->title ?>⫍</h1>
     <?php $form = ActiveForm::begin([
         'fieldConfig' => [
             'template' => "{label}\n{input}\n{error}",

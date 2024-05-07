@@ -41,9 +41,21 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
             <div class="nav">
                 <div class="gor">
                     <div class="acount">
-                        <div class="nik">Гость</div>
-                        <a class="but auth" href="/user/login">Войти</a>
-                        <a class="but reg" href="/user/registration">Регестрация</a>
+                        <?php if (Yii::$app->user->isGuest) : ?>
+                            <div class="nik">Гость</div>
+                        <? else :  ?> <div class="nik"><?= Yii::$app->user->identity->login ?></div>
+                        <?php endif; ?>
+                        <?php if (Yii::$app->user->isGuest) : ?>
+                            <a class="but auth" href="/user/login">Войти</a>
+                            <a class="but reg" href="/user/registration">Регестрация</a>
+                        <?php else : ?>
+                            <?= '<li>' .
+                                Html::beginForm(['/user/logout']) .
+                                Html::submitButton('Выход ', ['class' => 'but exit']) .
+                                Html::endForm() .
+                                '</li>'
+                            ?>
+                        <?php endif; ?>
                     </div>
 
                 </div>
@@ -51,12 +63,12 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                     <div class="ganr"></div>
                     <ul>
                         <div class="spis">Жанры музыки</div>
-                        <li class="li1"><a href="">Классическая музыка</a></li>
-                        <li class="li1"><a href="">Рок</a></li>
-                        <li class="li1"><a href="">Шансон</a></li>
-                        <li class="li1"><a href="">Джаз</a></li>
-                        <li class="li1"><a href="">Блюз</a></li>
-                        <li class="li1"><a href="">Другое...</a></li>
+                        <li class="li1"><a href="/tunderlist/classic">Классическая музыка</a></li>
+                        <li class="li1"><a href="/tunderlist/rok">Рок</a></li>
+                        <li class="li1"><a href="/tunderlist/shanson">Шансон</a></li>
+                        <li class="li1"><a href="/tunderlist/gazz">Джаз</a></li>
+                        <li class="li1"><a href="/tunderlist/bluz">Блюз</a></li>
+                        <li class="li1"><a href="/tunderlist/other">Другое...</a></li>
                     </ul>
                 </div>
                 <div class="stolb_ver2">
@@ -68,9 +80,13 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                         <?php else :  ?><li class="li1"><a href="">Любимые песни</a></li>
                         <?php endif; ?>
                         <li class="li1"><a href="">Рандомные 5 песен</a></li>
-                        <li class="li1"><a href="/tunderlist/createmuz">Добавить музыку</a></li>
+                        <?php if (!Yii::$app->user->isGuest) : ?>
+                            <li class="li1"><a href="/tunderlist/createmuz">Добавить музыку</a></li>
+                        <?php else : ?><li class="li1"><a href="/user/login">Добавить музыку</a></li>
+                        <? endif ?>
                     </ul>
                 </div>
+                <div class="up_logo down"></div>
     </header>
 
     <main>

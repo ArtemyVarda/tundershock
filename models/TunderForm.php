@@ -15,14 +15,16 @@ class TunderForm extends Model
     public function rules()
     {
         return [
-            [['songname', 'authore', 'ganre', 'url'], 'required']
+            [['songname', 'authore', 'ganre', 'url'], 'required'],
+            ['url', 'url']
         ];
     }
+
 
     public function attributeLabels()
     {
         return [
-            'songnsme' => 'Название песни',
+            'songname' => 'Название песни',
             'authore' => 'Автор',
             'ganre' => 'Жанр',
             'url' => 'Ссылка на песню'

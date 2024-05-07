@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=New+Rocker&family=Rubik+Moonrocks&display=swap");
 body {
   margin-top: 40px;
-  /* background: url(/images/tunder.jpg) no-repeat center center fixed; */
+  background: url(/images/tunder.jpg) no-repeat center center fixed;
   background-size: cover;
 }
 * {
@@ -66,12 +66,12 @@ a {
   height: 300px;
   background: black;
   position: absolute;
-  right: 440px;
+  right: 449px;
   box-shadow: 0px 0px 20px yellow;
   border: 3px solid white;
 }
 .countainer {
-  margin: 0 480px 0 480px;
+  margin: 0 450px 0 471px;
 }
 .spis {
   color: #fff;
@@ -97,6 +97,7 @@ a {
   align-content: center;
   padding-left: 10px;
   margin-left: 140px;
+  text-align: center;
 }
 .but {
   width: 110px;
@@ -211,4 +212,32 @@ a {
   border: 2px solid wheat;
   position: absolute;
   bottom: 0%;
+}
+.exit {
+  margin-left: 300px;
+  position: absolute;
+  margin-top: -50px;
+  text-align: center;
+}
+.url {
+  resize: none;
+}
+.down {
+  margin-top: 300px;
+  position: absolute;
+  z-index: -1;
+}
+.titles {
+  font-family: "Courier New", Courier, monospace;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  color: whitesmoke;
+  margin-top: 50px;
+  text-shadow: 0px 5px 10px gold;
+}
+.blackfon {
+  width: 1000px;
+  height: 2000px;
+  background: black;
 }
